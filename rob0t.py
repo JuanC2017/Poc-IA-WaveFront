@@ -44,7 +44,6 @@ def accion(func,i,j):
     return (func(i,j))
 
 def abajo(i,j):
-
     i=i+1
     return (i,j)
 
@@ -90,17 +89,17 @@ def siguiente(x,y):
 coordenadas[x0,y0]=1 #Coordenada final inicializada en 1
 siguiente(x0,y0) #argumentos coordenada final
 
-print("Cola",cola.items)
-value = coordenadas.values() #Lista valores de del diccionario coordenadas
+#print("Cola",cola.items)
+value = coordenadas.values() #valores del del diccionario coordenadas
 for i in value: #dicionario de valores a una nueva lista
     listValues.append(i)
-ambiente.clear()
 
+ambiente.clear()
 for i in range(filas+2):
     ambiente.append([])
     for j in range(columnas+2):#Actualizar la matriz ambiente con la lista de valores del diccionario
-        ambiente[i].append(listValues[conValue] if conValue<len(listValues) else None)
+        ambiente[i].append(listValues[conValue] if conValue<len(listValues)  else None)
         conValue += 1
 
-for i in ambiente:
-    print(i)
+for r in ambiente:
+        print(r)
