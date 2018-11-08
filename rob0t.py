@@ -32,10 +32,13 @@ filas=4
 columnas=5
 listValues=[]
 conValue=0
-x0=3+1 # compenente en x de la coordenada final mas 1 ; para que sea la coomponente en la mattriz con pared
-y0=4+1 #compenente en y final
-x1=3+1 #componente en x inicial
-y1=2+1 #componente en y inicial
+x1,y1 = input("Coordenada inicial:").split(",") #componente (x,y) inicial
+x0,y0 = input("Coordenada Final:").split(",") #componente (x,y) final
+x0 = int(x0)+1 ##mas 1 para que sea la coomponente en la mattriz con pared 
+y0 = int(y0)+1
+x1 = int(x1)+1
+y1 = int(y1)+1 
+
 for i in range(filas+2):
     for j in range(columnas+2):
         coordenadas.update({(i,j):ambiente[i][j]}) #Datos de la matriz corresponde dicionario con key de tuplas(coordenadas)
@@ -92,12 +95,13 @@ siguiente(x0,y0) #argumentos coordenada final
 #print("Cola",cola.items)
 value = coordenadas.values() #valores del del diccionario coordenadas
 for i in value: #dicionario de valores a una nueva lista
-    listValues.append(i)
+    if i != "B":#Ignorar pared  
+      listValues.append(i)
 
 ambiente.clear()
-for i in range(filas+2):
+for i in range(filas):
     ambiente.append([])
-    for j in range(columnas+2):#Actualizar la matriz ambiente con la lista de valores del diccionario
+    for j in range(columnas):#Actualizar la matriz ambiente con la lista de valores del diccionario
         ambiente[i].append(listValues[conValue] if conValue<len(listValues)  else None)
         conValue += 1
 
